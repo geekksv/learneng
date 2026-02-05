@@ -4,17 +4,30 @@ import { MicrophoneIcon } from "./icons/MicrophoneIcon";
 import { useWebSocketContext } from "../context/WebSocketContext";
 
 export const AgentSettings = () => {
+  const { voice, setVoice } = useWebSocketContext();
+
+  const voiceOptions = [
+    { value: "aura-thalia-en", label: "Thalia (Female)" },
+    { value: "aura-arcas-en", label: "Arcas (Male)" },
+  ];
+
   return (
-    <>
-      <div className="flex items-center gap-2.5 text-sm mr-4">
-        <span className="hidden md:inline-block text-white/50 font-inter">
-          LLM: <span className="text-white">Open AI gpt-4o-mini</span>
-        </span>
-        <span className="hidden md:inline-block text-white/50 font-inter">
-          Voice: <span className="text-white">Thalia</span>
-        </span>
-      </div>
-    </>
+    <div className="flex items-center gap-2.5 text-sm mr-4">
+      <span className="hidden md:inline-block text-white/50 font-inter">
+        Voice:
+        <select
+          value={voice}
+          onChange={(e) => setVoice(e.target.value)}
+          className="bg-transparent text-white border-none outline-none cursor-pointer ml-1 font-inter hover:text-white/80"
+        >
+          {voiceOptions.map((option) => (
+            <option key={option.value} value={option.value} className="bg-[#101014] text-white">
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </span>
+    </div>
   );
 };
 

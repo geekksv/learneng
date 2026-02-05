@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import GitHubButton from "react-github-btn";
 
 export const runtime = "edge";
 import { init } from "@fullstory/browser";
 import { useEffect } from "react";
 import { XIcon } from "./components/icons/XIcon";
-import { FacebookIcon } from "./components/icons/FacebookIcon";
 import { LinkedInIcon } from "./components/icons/LinkedInIcon";
+import { GitHubIcon } from "./components/icons/GitHubIcon";
 import ConversationAgent from "./components/ConversationAgent";
 
 export default function Home() {
@@ -20,12 +19,7 @@ export default function Home() {
     <>
       <div className="h-full overflow-hidden">
         {/* height 2rem */}
-        <div className="pb-1 bg-gradient-to-r bg-gradient to-[#13EF93] from-[#149AFB]">
-          <div className="bg-white text-black h-[1.75rem] text-xs font-bold flex items-center justify-center ">
-            <span>For our original STT + LLM + TTS version of Emily AI, <a href="https://emilyai-v1.deepgram.com" className="text-[#1470fb]">click here</a>.</span>
-          </div>
-        </div>
-
+        {/* height 4rem */}
         {/* height 4rem */}
         <div className="bg-gradient-to-b from-black/50 to-black/10 backdrop-blur-[2px] h-[4rem] flex items-center">
           <header className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 flex items-center justify-between pt-4 md:pt-0 gap-2">
@@ -41,29 +35,6 @@ export default function Home() {
                 />
               </a>
             </div>
-            <div className="flex items-center justify-center md:gap-6 text-sm">
-              <span className="mt-1">
-                <GitHubButton
-                  href="https://github.com/deepgram-devs/deepgram-conversational-demo"
-                  data-color-scheme="no-preference: light; light: light; dark: light;"
-                  data-size="large"
-                  data-show-count="true"
-                  aria-label="Star deepgram-devs/deepgram-conversational-demo on GitHub"
-                >
-                  Star
-                </GitHubButton>
-              </span>
-
-              <span className="gradient-shadow bg-gradient-to-r to-[#13EF93]/50 from-[#149AFB]/80 rounded">
-                <a
-                  href="https://console.deepgram.com/signup?jump=keys"
-                  target="_blank"
-                  className="hidden text-xs md:inline-block bg-black text-white rounded m-px px-8 py-2 font-semibold"
-                >
-                  Get an API Key
-                </a>
-              </span>
-            </div>
           </header>
         </div>
 
@@ -75,7 +46,6 @@ export default function Home() {
         {/* height 4rem */}
         <div className=" backdrop-blur-[2px] h-[4rem] flex items-center">
           <footer className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 flex items-center justify-center gap-4 md:text-xl font-inter text-[#8a8a8e]">
-            <span className="text-base text-[#4e4e52]">share it</span>
             <a
               href="#"
               onClick={(e) => {
@@ -109,19 +79,10 @@ export default function Home() {
             </a>
             <a
               href="#"
-              onClick={(e) => {
-                window.open(
-                  "https://www.facebook.com/sharer/sharer.php?u=https%3A//aura-tts-demo.deepgram.com",
-                  "",
-                  "_blank, width=600, height=500, resizable=yes, scrollbars=yes"
-                );
-
-                return e.preventDefault();
-              }}
               target="_blank"
-              aria-label="share on Facebook"
+              aria-label="github"
             >
-              <FacebookIcon className="mb-1" />
+              <GitHubIcon className="mb-1 h-5 w-5" />
             </a>
             <div className="border-l border-[#4e4e52] w-px h-7">&nbsp;</div>
             <a
